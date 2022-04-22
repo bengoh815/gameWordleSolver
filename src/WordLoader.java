@@ -18,8 +18,8 @@ public class WordLoader {
                 list.add(line);
             }
 
-        } catch (FileNotFoundException fnfe) {
-            fnfe.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             scanner.close();
         }
