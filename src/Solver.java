@@ -12,6 +12,7 @@ public class Solver {
         System.out.println();
         System.out.println("Welcome to Wordle Solver");
         System.out.println("Created by Novice Bug Producer: Ben");
+        System.out.println("Special thanks to Juju for the help");
         System.out.println();
         System.out.println();
         System.out.println();
