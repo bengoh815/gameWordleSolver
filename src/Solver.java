@@ -1,6 +1,4 @@
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class Solver {
@@ -97,5 +95,6 @@ public class Solver {
                 return;
             }
         }
+        scanner.close();
     }
 }
