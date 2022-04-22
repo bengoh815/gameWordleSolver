@@ -8,6 +8,27 @@ public class Solver {
         WordLoader wordLoader = new WordLoader();
         List<String> list = wordLoader.loadWords("5_letters.csv");
         
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("Welcome to Wordle Solver");
+        System.out.println("Created by Novice Bug Producer: Ben");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("I would like to warn you, there are bugs...");
+        System.out.println("Known pesky bugs:");
+        System.out.println("1. Try not to choose guesses that has 2 or more \n   of the same letters like \"diode\"");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("I would recommend the first guess to be \"crane\"");
+        System.out.println();
+        
         Scanner scanner = new Scanner(System.in);
         for (int i = 1; i <= 6; i++) {
             // input
@@ -20,6 +41,7 @@ public class Solver {
                     System.out.println("Word is not valid");
                 }
             } while (word.length() != 5 || !list.contains(word));
+            System.out.println();
 
             word = word.toLowerCase();
 
@@ -35,9 +57,11 @@ public class Solver {
                     System.out.println("Colors is not valid");
                 }
             } while (correctness.length() != 5 || !correctness.matches("[GgY]+"));
+            System.out.println();
             
-
-            System.out.println(word + " | " + correctness);
+            System.out.println();
+            System.out.println("Your input: " + word + " | " + correctness);
+            System.out.println();
 
             // process data
             // remove all g, !G, Y[current pos]
@@ -53,14 +77,25 @@ public class Solver {
                         list.removeIf(x -> x.charAt(num) != c);
                         break;
                     case 'Y':
-                        list.removeIf(x -> x.charAt(num) == c);
+                        list.removeIf(x -> x.charAt(num) == c || !x.contains(str));
                         break;
                 }
-
             }
-            
-            System.out.println(list.size());
-            // list remove
+
+            // print remaining words
+            System.out.println("Remaining words: " + list.size());
+            for (int k = 0; k < list.size(); k++) {
+                System.out.print(list.get(k) + ", ");
+                if (k % 8 == 7) {
+                    System.out.println();
+                }
+            }
+            System.out.println();
+            System.out.println();
+
+            if (list.size() <= 1) {
+                return;
+            }
         }
     }
 }
